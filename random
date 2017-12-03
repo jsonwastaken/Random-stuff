@@ -1,0 +1,44 @@
+// ConsoleApplication23.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class Reducing
+{
+public:
+	Reducing(int n, int d)
+	{
+		reduce(n, d);
+		cout << num << '/' << denom << endl;
+	}
+	int gcd(int n, int d)
+	{
+		if (n % d == 0)
+			return d;
+		else
+			return gcd(d, (n % d));
+	}
+private:
+	int num, denom;
+	void reduce(int n, int d)
+	{
+		num = n / gcd(n, d);
+		denom = d / gcd(n, d);
+	}
+};
+
+int main()
+{
+	
+	int n, d;
+	cin >> n;
+	cout << endl;
+	cin >> d;
+	Reducing test(n, d);
+
+
+    return 0;
+}
+
